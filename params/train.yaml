@@ -1,5 +1,5 @@
 params:
   penalty: l2
-  C: 3
+  C: 10
   solver: lbfgs
   max_iter: 7000
