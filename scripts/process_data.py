@@ -52,8 +52,8 @@ def process_data():
                param_n_features=len(columns), 
                param_train_size=train_size, 
                param_test_size_fraction=TEST_SIZE,
-               metric_train_samples=len(y_train),
-               metric_test_samples=len(y_test))
+               param_train_samples=len(y_train),
+               param_test_samples=len(y_test))
     logger.info('Этап обработки данных успешно залогирован в MLflow')
     
     logger.info(f'    Размер тренировочного датасета: {len(y_train)}')
