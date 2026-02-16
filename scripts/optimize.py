@@ -40,8 +40,9 @@ def objective(trial):
         roc_auc = roc_auc_score(y_test, y_proba)
         scores = {
             f"metric_{metric_name}": get_scorer(metric_name)(model, X_test, y_test) 
-            for metric_name in load_params(stage_name='train')['metrics']
+            for metric_name in load_params(stage_name='evaluate')['metrics']
         }
+        log_mlflow(**scores)
         
         return roc_auc
     
@@ -115,7 +116,11 @@ def optimize():
         
         y_proba = best_model.predict_proba(X_test)[:, 1]
         final_roc_auc = roc_auc_score(y_test, y_proba)
-        log_mlflow(metric_final_roc_auc=final_roc_auc)
+        scores = {
+            f"metric_best_{metric_name}": get_scorer(metric_name)(model, X_test, y_test) 
+            for metric_name in load_params(stage_name='evaluate')['metrics']
+        }
+        log_mlflow(**scores)
         
         trials_df = study.trials_dataframe()
         trials_df.to_csv("optuna_trials.csv", index=False)
