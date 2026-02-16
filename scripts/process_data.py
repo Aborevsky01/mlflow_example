@@ -50,7 +50,6 @@ def process_data():
     
     log_mlflow(param_features=",".join(columns), 
                param_n_features=len(columns), 
-               param_train_size=train_size, 
                param_test_size_fraction=TEST_SIZE,
                param_train_samples=len(y_train),
                param_test_samples=len(y_test))
