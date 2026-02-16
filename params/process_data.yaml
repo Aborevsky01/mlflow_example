@@ -3,6 +3,9 @@ params:
     - age
     - education
     - occupation
+    - marital.status
+    - capital.gain
+    - hours.per.week
   train_size: 25000
 
   
