@@ -114,7 +114,7 @@ def optimize():
         )
         best_model.fit(X_train, y_train, verbose=False)
         
-        mlflow.catboost.log_model(best_model, artifact_path="model")
+        mlflow.catboost.log_model(best_model, artifact_path="model", input_example=X_train[:5])
         
         y_proba = best_model.predict_proba(X_test)[:, 1]
         final_roc_auc = roc_auc_score(y_test, y_proba)
