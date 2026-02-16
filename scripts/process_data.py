@@ -24,7 +24,7 @@ def process_data():
 
     logger.info('Делаем предобработку данных')
     df = dataset['train'].to_pandas()
-    columns = params['features']
+    columns = sorted(params['features'])
     target_column = 'income'
     X, y = df[columns], df[target_column]
     logger.info(f'    Используемые фичи: {columns}')
