@@ -1,5 +1,6 @@
 from scripts import evaluate, process_data, train
 from setup import launch_mlflow
+import mlflow
 
 
 if __name__ == '__main__':
