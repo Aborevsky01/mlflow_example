@@ -39,7 +39,11 @@ def train():
             param_model_type="LogisticRegression",
             **{f"param_{k}": v for k, v in params.items()}
         )
-        mlflow.sklearn.log_model(model, artifact_path="model")
+        mlflow.sklearn.log_model(
+            model, 
+            artifact_path="model",
+            input_example=X_train[:5]
+        )
         logger.info('Модель залогирована в MLflow')
         
     logger.info('Успешно!')
