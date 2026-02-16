@@ -23,6 +23,5 @@ if __name__ == '__main__':
             train()
             evaluate()
     elif args.mode == 'optuna':
-        with mlflow.start_run(run_name="optuna_data_prep"):
-            process_data()
-            optimize()
+        process_data()
+        optimize()
