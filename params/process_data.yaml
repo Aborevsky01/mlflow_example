@@ -12,6 +12,6 @@ params:
     - capital.loss
     - hours.per.week
     - native.country
-  train_size: 10000
+  train_size: 30000
 
   
