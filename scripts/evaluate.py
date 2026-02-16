@@ -8,7 +8,7 @@ from sklearn.metrics import get_scorer
 from constants import DATASET_PATH_PATTERN, MODEL_FILEPATH
 from utils import get_logger, load_params
 
-from mlflow_setup import launch_mlflow, log_mlflow
+from setup import launch_mlflow, log_mlflow
 import mlflow
 
 import matplotlib

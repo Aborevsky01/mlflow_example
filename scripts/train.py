@@ -5,7 +5,7 @@ from sklearn.linear_model import LogisticRegression
 from constants import DATASET_PATH_PATTERN, MODEL_FILEPATH, RANDOM_STATE
 from utils import get_logger, load_params
 
-from mlflow_setup import launch_mlflow, log_mlflow
+from setup import launch_mlflow, log_mlflow
 import mlflow
 
 STAGE_NAME = 'train'
