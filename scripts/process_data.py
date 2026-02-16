@@ -8,6 +8,9 @@ from sklearn.preprocessing import OrdinalEncoder
 from constants import DATASET_NAME, DATASET_PATH_PATTERN, TEST_SIZE, RANDOM_STATE
 from utils import get_logger, load_params
 
+import mlflow
+from setup import launch_mlflow, log_mlflow
+
 STAGE_NAME = 'process_data'
 
 
@@ -41,7 +44,20 @@ def process_data():
     )
 
     # use train_size param to take only train_size rows of train dataset
-    ...
+    train_size = params.get('train_size', len(X_train))
+    X_train = X_train[:train_size]
+    y_train = y_train[:train_size]
+    
+    launch_mlflow()
+    with mlflow.start_run(run_name="process_data"):
+        log_mlflow(param_features=",".join(columns), 
+                   param_n_features=len(columns), 
+                   param_train_size=train_size, 
+                   param_test_size_fraction=TEST_SIZE,
+                   metric_train_samples=len(y_train),
+                   metric_test_samples=len(y_test))
+        logger.info('Этап обработки данных успешно залогирован в MLflow')
+        
     logger.info(f'    Размер тренировочного датасета: {len(y_train)}')
     logger.info(f'    Размер тестового датасета: {len(y_test)}')
 
