@@ -86,7 +86,7 @@ def optimize():
     for param_name, param_value in study.best_params.items():
         logger.info(f'  {param_name}: {param_value}')
     
-    # Сохраняем лучшую модель и результаты в отдельный run
+    mlflow.end_run()
     mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
     mlflow.set_experiment(EXPERIMENT_NAME)
     
