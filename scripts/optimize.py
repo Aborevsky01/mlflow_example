@@ -62,6 +62,7 @@ def optimize():
         create_experiment=False,
         mlflow_kwargs={
             "experiment_name": EXPERIMENT_NAME,
+            "nested": True 
         }
     )
     
