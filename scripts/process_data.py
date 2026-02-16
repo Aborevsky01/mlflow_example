@@ -53,6 +53,34 @@ def process_data():
                param_test_size_fraction=TEST_SIZE,
                param_train_samples=len(y_train),
                param_test_samples=len(y_test))
+
+    logger.info('Логируем датасеты в MLflow как артефакты...')
+    
+    train_df = pd.DataFrame(X_train)
+    train_df['target'] = y_train
+    train_df.to_csv("train_dataset.csv", index=False)
+    mlflow.log_artifact("train_dataset.csv")
+    
+    test_df = pd.DataFrame(X_test)
+    test_df['target'] = y_test
+    test_df.to_csv("test_dataset.csv", index=False)
+    mlflow.log_artifact("test_dataset.csv")
+    
+    # Сохраняем описание фичей
+    feature_info = {
+        'features': columns,
+        'n_features': len(columns),
+        'categorical_features': cat_features,
+        'numerical_features': num_features,
+        'train_size': len(y_train),
+        'test_size': len(y_test)
+    }
+    import json
+    with open("dataset_info.json", "w") as f:
+        json.dump(feature_info, f, indent=2)
+    mlflow.log_artifact("dataset_info.json")
+    
+    logger.info('Датасеты залогированы в MLflow!')
     logger.info('Этап обработки данных успешно залогирован в MLflow')
     
     logger.info(f'    Размер тренировочного датасета: {len(y_train)}')

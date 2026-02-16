@@ -10,3 +10,7 @@ ipython==8.12.2
 notebook==6.4.10
 traitlets==5.9.0
 setuptools==80.10.1
+
+optuna==3.6.0
+optuna-integration==3.6.0
+catboost==1.2.2
