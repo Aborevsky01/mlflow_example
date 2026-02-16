@@ -52,6 +52,7 @@ def objective(trial):
 
 
 def optimize():
+    mlflow.end_run()
     params = load_params(stage_name=STAGE_NAME)
     n_trials = params.get('n_trials', 50)
     
