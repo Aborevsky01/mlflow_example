@@ -1,5 +1,5 @@
 params:
   penalty: l1
   C: 1
-  solver: liblinear
+  solver: saga
   max_iter: 7000
