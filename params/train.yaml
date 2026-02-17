@@ -1,5 +1,5 @@
 params:
-  penalty: l2
+  penalty: l1
   C: 1
-  solver: lbfgs
+  solver: liblinear
   max_iter: 7000
