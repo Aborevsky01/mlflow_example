@@ -184,14 +184,14 @@
 
 ### Описание и гипотеза
 
-В этом блоке исследуется влияние гиперпараметров CatBoost на качество бинарной классификации с целевой метрикой ROC-AUC, а подбор выполняется через Optuna (фиксируется датасет и пайплайн подготовки данных, меняются только параметры модели). [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/94268956/4991030c-ca21-45a5-b118-d49c1996e21c/runner.py)
-Гипотеза: градиентный бустинг по деревьям при корректной настройке способен существенно улучшить ROC-AUC и PR-AUC по сравнению с линейной моделью за счёт учёта нелинейностей и взаимодействий признаков. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/94268956/4991030c-ca21-45a5-b118-d49c1996e21c/runner.py)
+В этом блоке исследуется влияние гиперпараметров CatBoost на качество бинарной классификации с целевой метрикой ROC-AUC, а подбор выполняется через Optuna (фиксируется датасет и пайплайн подготовки данных, меняются только параметры модели). 
+**Гипотеза**: градиентный бустинг по деревьям при корректной настройке способен существенно улучшить ROC-AUC и PR-AUC по сравнению с линейной моделью за счёт учёта нелинейностей и взаимодействий признаков.
 
 ### Лучший запуск (Optuna best)
 
-Ссылка на лучший запуск по ROC-AUC: http://158.160.2.37:5000/#/experiments/9/runs/c6a14f325f9b4caa8435e89b8a2fbb0d [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/94268956/4991030c-ca21-45a5-b118-d49c1996e21c/runner.py)
+Ссылка на лучший запуск по ROC-AUC: http://158.160.2.37:5000/#/experiments/9/runs/c6a14f325f9b4caa8435e89b8a2fbb0d
 
-Параметры лучшей конфигурации CatBoost: `iterations=400`, `learning_rate=0.09714828622959232`, `border_count=116`, `depth=6`, `l2_leaf_reg=0.643564818580567`. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/94268956/4991030c-ca21-45a5-b118-d49c1996e21c/runner.py)
+Параметры лучшей конфигурации CatBoost: `iterations=400`, `learning_rate=0.09714828622959232`, `border_count=116`, `depth=6`, `l2_leaf_reg=0.643564818580567`.
 
 ### Метрики лучшего запуска
 
@@ -205,5 +205,5 @@
 
 ### Выводы
 
-Лучший запуск CatBoost после Optuna-подбора достиг ROC-AUC = 0.9301 и PR-AUC = 0.8289, что делает его итоговым кандидатом на финальную модель в рамках задания (выбор по максимальному ROC-AUC). [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/94268956/4991030c-ca21-45a5-b118-d49c1996e21c/runner.py)
-Модель залогирована в MLflow как отдельная сущность (logged model) и доступна в артефактах run’а. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/94268956/4991030c-ca21-45a5-b118-d49c1996e21c/runner.py)
+Лучший запуск CatBoost после Optuna-подбора достиг ROC-AUC = 0.9301 и PR-AUC = 0.8289, что делает его итоговым кандидатом на финальную модель в рамках задания (выбор по максимальному ROC-AUC).
+Модель залогирована в MLflow как отдельная сущность (logged model) и доступна в артефактах run’а. 
