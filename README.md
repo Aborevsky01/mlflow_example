@@ -108,6 +108,62 @@
 
 График: сравнение ROC-AUC и PR-AUC для различных комбинаций `penalty` и `solver`.
 
+### Логирование датасетов в запуски
+
+В соответствии с дополнительным требованием задания, в код была добавлена функциональность логирования обучающего и тестового датасетов как артефактов MLflow в каждый запуск эксперимента.
+
+В каждом из запусков Experiment #13, #14, #15 (разрез по типу penalty/solver) логируются следующие артефакты:
+
+- `train_dataset.csv` — обучающая выборка с целевой переменной
+- `test_dataset.csv` — тестовая выборка с целевой переменной  
+- `dataset_info.json` — метаинформация о признаках (список фич, их типы, размеры train/test)
+
+Это позволяет:
+
+- полностью воспроизвести запуск, имея только Run ID;
+- проанализировать распределение признаков и целевой переменной непосредственно из MLflow UI без доступа к исходному пайплайну;
+- гарантировать трассируемость данных для каждого эксперимента.
+
+Пример содержимого `dataset_info.json`:
+
+```json
+{
+  "features": [
+    "age",
+    "capital.gain",
+    "capital.loss",
+    "education",
+    "hours.per.week",
+    "marital.status",
+    "native.country",
+    "occupation",
+    "race",
+    "relationship",
+    "sex",
+    "workclass"
+  ],
+  "n_features": 12,
+  "categorical_features": [
+    "native.country",
+    "workclass",
+    "occupation",
+    "education",
+    "sex",
+    "relationship",
+    "race",
+    "marital.status"
+  ],
+  "numerical_features": [
+    "capital.loss",
+    "hours.per.week",
+    "capital.gain",
+    "age"
+  ],
+  "train_size": 22792,
+  "test_size": 9769
+}
+```
+
 ### Выводы
 
 - Комбинации `l2 + lbfgs` и `l1 + liblinear` дают очень близкие значения ROC-AUC и PR-AUC, что говорит о том, что при текущем наборе фич и данных выбор типа штрафа менее критичен, чем, например, число признаков.  
