@@ -199,7 +199,9 @@
 |---|---|---:|---:|---:|---:|---:|---:|---:|
 | c6a14f325f9b4caa8435e89b8a2fbb0d | CatBoost | 0.9301221650 | 0.8288617254 | 0.8733749616 | 0.7856033143 | 0.6482905983 | 0.7103722782 | 50 |
 
-Графики/таблицы зависимости метрик от параметров (Optuna trials) получены в MLflow UI для данного эксперимента и используются для анализа влияния `depth`, `learning_rate`, `l2_leaf_reg` и `iterations` на ROC-AUC/PR-AUC. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/94268956/4991030c-ca21-45a5-b118-d49c1996e21c/runner.py)
+Графики/таблицы зависимости метрик от параметров (Optuna trials) получены в MLflow UI на ROC-AUC.
+
+![axis_0](img/axis_optuna.png)
 
 ### Выводы
 
