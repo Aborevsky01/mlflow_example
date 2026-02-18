@@ -33,7 +33,7 @@
 
 График: зависимость ROC-AUC от `train_size`.
 
-![Axis 0](img/axis_mavletova_0.png)
+![Axis 0](img/axis_mamletova_0.png)
 
 ### Выводы
 
@@ -77,7 +77,7 @@
 
 График: сравнение ROC-AUC для различных типов моделей.
 
-![Axis 1](img/axis_mavletova_1.png)
+![Axis 1](img/axis_mamletovs_1.png)
 
 ### Выводы
 
