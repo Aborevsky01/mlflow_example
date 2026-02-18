@@ -43,7 +43,6 @@ def process_data():
         X_transformed, y_transformed, test_size=TEST_SIZE, random_state=RANDOM_STATE
     )
 
-    # use train_size param to take only train_size rows of train dataset
     train_size = params.get('train_size', len(X_train))
     X_train = X_train[:train_size]
     y_train = y_train[:train_size]
@@ -66,7 +65,6 @@ def process_data():
     test_df.to_csv("test_dataset.csv", index=False)
     mlflow.log_artifact("test_dataset.csv")
     
-    # Сохраняем описание фичей
     feature_info = {
         'features': columns,
         'n_features': len(columns),
