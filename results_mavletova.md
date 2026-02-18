@@ -31,7 +31,9 @@
 | fdd2f807bbd041f1813d736fdd1d55f9 | A_train_size_15000 | 15000 | logreg | 0.752 | 0.749 | 0.417 | 0.417 | 0.087 | 0.144 |
 | fa995c0ef17d471089f48a39c0027ef2 | A_train_size_20000 | 20000 | logreg | 0.751 | 0.749 | 0.417 | 0.406 | 0.082 | 0.136 |
 
-График: зависимость ROC-AUC и PR-AUC от `train_size`.
+График: зависимость ROC-AUC от `train_size`.
+
+![Axis 0](img/axis_mavletova_0.png)
 
 ### Выводы
 
@@ -73,7 +75,9 @@
 | b8fe0a0351fb4c1bbf885937998bd4f1 | B_model_type_randomforest | random_forest | n_estimators=300, max_depth=12, min_samples_split=10 | 0.825 | 0.876 | 0.678 | 0.683 | 0.506 | 0.581 |
 | bcbcc5a8281848fbb0b3bb3a56eb0396 | B_model_type_gradientboosting | gradient_boosting | n_estimators=300, learning_rate=0.05, max_depth=3 | 0.828 | 0.880 | 0.687 | 0.696 | 0.501 | 0.582 |
 
-График: сравнение ROC-AUC и PR-AUC для различных типов моделей.
+График: сравнение ROC-AUC для различных типов моделей.
+
+![Axis 1](img/axis_mavletova_1.png)
 
 ### Выводы
 
@@ -112,7 +116,7 @@
 | 314c907588eb4de98aef96655a8b2689 | C_logreg_solver_type_saga | saga | 0.751 | 0.749 | 0.417 | 0.404 | 0.080 | 0.134 |
 | d350217a5ce844148f511ca2777c5a1f | C_logreg_solver_type_sag | sag | 0.751 | 0.749 | 0.417 | 0.407 | 0.084 | 0.139 |
 
-График: сравнение ROC-AUC и PR-AUC для различных solver'ов.
+График нет возможности построить из-за особенностей логгирования
 
 ### Выводы
 
