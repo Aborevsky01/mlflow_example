@@ -56,12 +56,12 @@ def process_data():
     logger.info('Логируем датасеты в MLflow как артефакты...')
     
     train_df = pd.DataFrame(X_train)
-    train_df['target'] = y_train
+    train_df['target'] = y_train.values
     train_df.to_csv("train_dataset.csv", index=False)
     mlflow.log_artifact("train_dataset.csv")
     
     test_df = pd.DataFrame(X_test)
-    test_df['target'] = y_test
+    test_df['target'] = y_test.values
     test_df.to_csv("test_dataset.csv", index=False)
     mlflow.log_artifact("test_dataset.csv")
     
